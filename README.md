@@ -1,7 +1,7 @@
 # node-crackwatch
 A CLI tool to search and find games on crackwatch
 
-**To install just run npm install -g node-crackwatch**
+**To install just run `npm install -g node-crackwatch`**
 
 **Usage: crackwatch [options]**
 
