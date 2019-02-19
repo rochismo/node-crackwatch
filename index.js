@@ -28,5 +28,6 @@ program
         } else {
             games.map(game => console.log(game.toString()));
         }
+        process.exit();
     })
     .parse(process.argv); // end with parse to parse through the input
