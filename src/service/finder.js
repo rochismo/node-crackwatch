@@ -30,7 +30,10 @@ module.exports = {
         
         if (found.length != 0) {
             this.gamesFound.push(found)
-            console.log(chalk.green(`${this.gamesFound.length} games found`));            
+            console.log(chalk.green(`${this.gamesFound.length} games found`));   
+            if (this.stopOnFind) {
+                res(this.gamesFound);
+            }         
         }
         if (this.pageStart == this.pageEnd) {
             res(this.gamesFound);

@@ -10,6 +10,7 @@ program
     .option('-p, --page-start [optional]', 'Page start (default 0) <Integer>')
     .option('-P, --page-end [optional]', 'Page end (default 100) <Integer>')
     .option('-v, --verbose', 'Display more information <Boolean>')
+    .option('-s, --stop-on-find', 'Stop once the program has found a game <Boolean>')
     .action(async function () {
         if (process.argv.length == 2) {
             program.help();

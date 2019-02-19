@@ -13,7 +13,8 @@ class Finder {
         pageStart = 0,
         pageEnd = 100,
         verbose = false,
-        exact = false
+        exact = false,
+        stopOnFind = false
     }) {
         this.game = game;
         this.games = games.split(",");
@@ -23,6 +24,7 @@ class Finder {
         this.verbose = verbose;
         this.gamesFound = [];
         this.exact = exact;
+        this.stopOnFind = stopOnFind;
     }
 
     async findGame(games) {

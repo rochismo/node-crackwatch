@@ -13,6 +13,7 @@ A CLI tool to search and find games on crackwatch
   * -p, --page-start [optional]  Page start (default 0) <Integer>
   * -P, --page-end [optional]    Page end (default 100) <Integer>
   * -v, --verbose                Display more information <Boolean>
+  * -s, --stop-on-find           Stop once the program has found a game <Boolean>
   * -h, --help                   output usage information
   
 Examples: 
