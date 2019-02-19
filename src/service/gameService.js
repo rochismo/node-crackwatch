@@ -9,16 +9,15 @@ class Finder {
 
     init({
         game = "",
-        games = [],
+        games = "",
         pageStart = 0,
         pageEnd = 100,
         verbose = false,
         exact = false
     }) {
         this.game = game;
-        if (games instanceof String) {
-            this.games = games.split(",");
-        } 
+        this.games = games.split(",");
+
         this.pageStart = pageStart;
         this.pageEnd = pageEnd;
         this.verbose = verbose;

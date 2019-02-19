@@ -11,7 +11,7 @@ program
     .option('-P, --page-end [optional]', 'Page end (default 100) <Integer>')
     .option('-v, --verbose', 'Display more information <Boolean>')
     .action(async function () {
-        if (program.args.length == 0) {
+        if (process.argv.length == 2) {
             program.help();
             return;
         }
