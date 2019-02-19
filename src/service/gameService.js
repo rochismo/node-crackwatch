@@ -31,7 +31,7 @@ class Finder {
         let interval = null;    
         return new Promise((res, rej) => {
             const cb = findGames.bind(this)
-            const accuracy = this.exact ? 0.85 : 0.55;
+            const accuracy = this.exact ? 0.85 : 0.5;
             interval = setInterval(cb, 1500, games, res, accuracy);
         }).then(games => {
             clearInterval(interval);
