@@ -1,12 +1,17 @@
 {
   "name": "node-crackwatch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A CLI tool to search and find games on crackwatch",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": ["crackwatch", "games", "crack", "cpy"],
+  "keywords": [
+    "crackwatch",
+    "games",
+    "crack",
+    "cpy"
+  ],
   "bin": {
     "crackwatch": "./index.js"
   },
