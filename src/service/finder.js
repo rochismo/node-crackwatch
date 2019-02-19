@@ -10,7 +10,13 @@ const chalk = require("chalk");
 const readline = require('readline');
 readline.emitKeypressEvents(process.stdin);
 process.stdin.setRawMode(true);
-
+let stopped = false;
+process.stdin.on('keypress', (str, key) => {
+    if (key.ctrl && key.name === 'c') {
+        console.log(chalk.red("Detected manual stop"));
+        stopped = true;
+    }
+});
 
 function getGames(games, titles, value) {
     const found = [];
@@ -26,15 +32,13 @@ function getGames(games, titles, value) {
 }
 module.exports = {
     findGames: async function (games, res, value) {
+        if (stopped) {
+            res(this.gamesFound);
+        }
         if (this.verbose) {
             console.log(chalk.red(`Searching at page: ${this.pageStart}`));
         }
-        process.stdin.on('keypress', (str, key) => {
-            if (key.ctrl && key.name === 'c') {
-                console.log(chalk.red("Detected manual stop"));
-                res(this.gamesFound);
-            }
-        });
+
         const json = await request(`${GAMES}?page=${this.pageStart}`);
         const mapped = json.map(game => new Game(game));
 
