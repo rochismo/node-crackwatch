@@ -1,0 +1,22 @@
+{
+  "name": "node-crackwatch",
+  "version": "1.0.0",
+  "description": "A CLI tool to search and find games on crackwatch",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["crackwatch", "games", "crack", "cpy"],
+  "bin": {
+    "crackwatch": "./index.js"
+  },
+  "preferGlobal": true,
+  "author": "rochismo",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "commander": "^2.19.0",
+    "node-fetch": "^2.3.0",
+    "string-similarity": "^3.0.0"
+  }
+}
