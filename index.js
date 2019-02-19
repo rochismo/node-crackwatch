@@ -16,7 +16,6 @@ program
             return;
         }
         service.init(program);
-        console.log("Please be patient while I search\n");
         const data = await service.findGames();
         const games = await Promise.all(data);
         if (games.length == 0) {

@@ -40,6 +40,8 @@ class Finder {
     async findGames() {
         if (!this.games && this.game === "") return ["You didn't specify a game"]
         if (this.games.length == 0 || this.game !== "") this.games.push(this.game);
+        console.log("Please be patient while I search");
+
         return await this.findGame(this.games);
 
     }
