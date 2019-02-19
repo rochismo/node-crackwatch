@@ -16,8 +16,13 @@ program
             return;
         }
         service.init(program);
+        console.log("Please be patient while I search\n");
         const data = await service.findGames();
         const games = await Promise.all(data);
-        games.map(game => console.log(game.toString()));
+        if (games.length == 0) {
+            console.log("No games found");
+        } else {
+            games.map(game => console.log(game.toString()));
+        }
     })
     .parse(process.argv); // end with parse to parse through the input

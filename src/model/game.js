@@ -18,6 +18,6 @@ module.exports = class Game {
 
         const protections = `${this.protections.join(', ')}`
         const released = `${chalk.blue(this.title)} is released on ${this.releaseDate}`;
-        return `${chalk.blue(this.title)}${isAAA} and has the following protections: ${chalk.red(protections)}. ${released}. Status: ${cracked}`;
+        return `${chalk.blue(this.title)}${isAAA} and has the following protections: ${chalk.red(protections)}.\n ${released}. Status: ${cracked}`;
     }
 }

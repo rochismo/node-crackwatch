@@ -26,7 +26,7 @@ class Finder {
     }
 
     async findGame(games) {
-        let interval = null;
+        let interval = null;    
         return new Promise((res, rej) => {
             const cb = findGames.bind(this)
             const accuracy = this.exact ? 0.85 : 0.55;
