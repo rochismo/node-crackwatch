@@ -12,6 +12,10 @@ program
     .option('-v, --verbose', 'Display more information <Boolean>')
     .option('-s, --stop-on-find', 'Stop once the program has found a game <Boolean>')
     .action(async function () {
+        if (program.pageStart > 450) {
+            console.log("You cannot go beyond 450 pages");
+            return;
+        }
         if (process.argv.length == 2) {
             program.help();
             return;

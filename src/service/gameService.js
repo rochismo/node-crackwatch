@@ -11,7 +11,7 @@ class Finder {
         game = "",
         games = "",
         pageStart = 0,
-        pageEnd = 100,
+        pageEnd = 430,
         verbose = false,
         exact = false,
         stopOnFind = false
@@ -20,7 +20,7 @@ class Finder {
         this.games = games.split(",");
 
         this.pageStart = pageStart;
-        this.pageEnd = pageStart > pageEnd ? pageStart + pageEnd : pageEnd;
+        this.pageEnd = pageEnd;
         this.verbose = verbose;
         this.gamesFound = [];
         this.exact = exact;
