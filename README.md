@@ -19,3 +19,10 @@ A CLI tool to search and find games on crackwatch
 Examples: 
 * crackwatch -g "Far Cry" (Will try to find games that match with the parameter)
 * crackwatch -G "Far Cry,Metro" -p 0 -P 100 (Will try to find games that mach with the parameter from page 0 to 100)
+
+### TODO
+- [ ] Implement a live crack watch
+  - [ ] Add custom delay by user input
+  - [ ] Find a single game or find games matching the user's choice
+  - [ ] Save all the pages where the selected games are found
+  - [ ] Allow to stop on CTRL + C
