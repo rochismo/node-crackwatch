@@ -1,13 +1,7 @@
-const {
-    findGames
-} = require('./finder.js');
+const GameFinder = require('./gameFinder.js');
 
 class Finder {
-    constructor() {
-
-    }
-
-    init({
+    constructor({
         game = "",
         games = "",
         pageStart = 0,
@@ -17,7 +11,7 @@ class Finder {
         stopOnFind = false
     }) {
         this.game = game;
-        this.games = games.split(",");
+        this.games = games === "" ? [] : games.split(",");
 
         this.pageStart = pageStart;
         this.pageEnd = pageEnd;
@@ -25,27 +19,32 @@ class Finder {
         this.gamesFound = [];
         this.exact = exact;
         this.stopOnFind = stopOnFind;
+        this.accuracy = 0;
+        this.init();
     }
 
-    async findGame(games) {
-        let interval = null;    
-        return new Promise((res, rej) => {
-            const cb = findGames.bind(this)
-            const accuracy = this.exact ? 0.85 : 0.5;
-            interval = setInterval(cb, 1500, games, res, accuracy);
-        }).then(games => {
-            clearInterval(interval);
-            return games;
-        })
+    init() {
+        this.finder = new GameFinder();
+        this.accuracy = this.exact ? 0.85 : 0.5
     }
 
-    async findGames() {
-        if (!this.games && this.game === "") return ["You didn't specify a game"]
-        if (this.games.length == 0 || this.game !== "") this.games.push(this.game);
+
+    findGames() {
+        // Check if user provided any games
+        if (!this.games && this.game === "") {
+            return ["You didn't specify a game"]
+        }
+
+        // Check if we have a game or that the list of games doesn't include the game 
+        if (this.game || !this.games.includes(this.game)) {
+            this.games.push(this.game);
+        }
+        this.finder.setRequiredValues(this);
         console.log("Please be patient while I search");
-
-        return await this.findGame(this.games);
+        
+        // We'll always filter through an array even if it's length of one
+        return this.finder.find();
 
     }
 }
-module.exports = new Finder();
+module.exports = Finder;

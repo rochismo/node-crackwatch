@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const service = require('./src/service/gameService.js');
+const Finder = require('./src/service/gameService.js');
 program
     .version('0.0.1')
     .option('-g, --game [optional]', 'Game name (must be between quotes) <String>')
@@ -20,7 +20,7 @@ program
             program.help();
             return;
         }
-        service.init(program);
+        const service = new Finder(program);
         const data = await service.findGames();
         const games = await Promise.all(data);
         if (games.length == 0) {
